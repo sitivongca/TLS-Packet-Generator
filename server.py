@@ -6,22 +6,22 @@ def run_server(choice):
     host = "127.0.0.1"
     port = 65002
     encrypted = True
-
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     match choice:
         case "0":
             # Plaintext
             encrypted = False
         case "1":
-            # SSL 2/3
-            context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+            # SSL 3
+            context.maximum_version_version = ssl.TLSVersion.SSLv3
         case "2":
             # TLS 1.1
-            context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
+            context.maximum_version_version = ssl.TLSVersion.TLSv1_1
         case "3":
             # TLS 1.2
-            context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+            context.maximum_version_version = ssl.TLSVersion.TLSv1_1
         case _:
-            context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+            context.maximum_version_version = ssl.TLSVersion.MAXIMUM_SUPPORTED
     if encrypted == True:
         # Set up certificates
         context.load_cert_chain(certfile="certs/server.crt", keyfile="certs/server.key")

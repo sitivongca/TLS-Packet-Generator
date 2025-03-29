@@ -6,22 +6,24 @@ def run_client(choice):
     host = "localhost"
     port = 65002
     encrypted = True
-
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+    print(f"{ssl.TLSVersion.MINIMUM_SUPPORTED}, {ssl.TLSVersion.MAXIMUM_SUPPORTED}")
+    context.minimum_version = ssl.TLSVersion.MINIMUM_SUPPORTED
     match choice:
         case "0":
             # Plaintext
             encrypted = False
         case "1":
-            # SSL 2/3
-            context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+            # SSL 3
+            context.maximum_version_version = ssl.TLSVersion.SSLv3
         case "2":
             # TLS 1.1
-            context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_1)
+            context.maximum_version_version = ssl.TLSVersion.TLSv1_1
         case "3":
             # TLS 1.2
-            context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
+            context.maximum_version_version = ssl.TLSVersion.TLSv1_1
         case _:
-            context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+            context.maximum_version_version = ssl.TLSVersion.MAXIMUM_SUPPORTED
 
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((host, port))
