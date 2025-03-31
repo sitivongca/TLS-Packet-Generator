@@ -3,7 +3,7 @@
 Communicates between client and server through python to use for packet analysis
 From SSLv3 to TLSv1.3
 
-![Terminal](/public/example.png)
+![Terminal](/public/terminal.png)
 ![Wireshark](/public/SSL3SS.png)
 
 ### Dependencies
