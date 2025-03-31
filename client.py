@@ -49,7 +49,7 @@ def run_client(choice):
         connection.do_handshake()
 
         # Send and receive data
-        connection.send(b"Hello, secure server!")
+        connection.send(b"Hello, server!")
         data = connection.recv(1024)
         print(f"[Server]: {data.decode()}")
 
