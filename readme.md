@@ -1,7 +1,6 @@
 # SSL/TLS Packet Generator
 
-Communicates between client and server through python to use for packet analysis
-From SSLv3 to TLSv1.3
+Communicates between client and server through python to use for packet analysis from SSLv3 to TLSv1.3
 
 ![Terminal](/public/terminal.png)
 ![Wireshark](/public/SSL3SS.png)
