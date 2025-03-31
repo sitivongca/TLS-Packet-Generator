@@ -16,8 +16,7 @@ Make sure to have the python venv already set up
   - MSVC
   - Windows 10 SDK (Have not tested Windows 11 SDK)
 
-Run config.ps1 to install or do it manually
-
+cd into /configs and run ./config.ps1 to install or do it manually with guide below
 1. Remove the two no-ssl3 options directly from /configdata.pm at the options array in OpenSSL source folder
 2. C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat x86_amd64 or wherever your path goes
 3. perl Configure VC-WIN64A --prefix="abs-path-to/project-path/.venv/openssl" --openssldir="abs-path-to/project-path/.venv/openssl" enable-ssl3 enable-ssl3-method
