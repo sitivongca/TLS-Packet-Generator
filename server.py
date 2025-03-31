@@ -67,7 +67,7 @@ def run_server(choice):
             print(f"Using: {version} with cipher: {cipher}")
 
             data = secure_conn.recv(1024)
-            print(f"[Client] {data.decode()}")
+            print(f"[Client]: {data.decode()}")
             secure_conn.sendall(b"Hello, client!")
             secure_conn.close()
 
