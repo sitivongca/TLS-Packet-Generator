@@ -5,10 +5,10 @@ From SSLv3 to TLSv1.3
 
 ### Dependencies
 
-Tested with Python 3.10.x
-InquirerPy
-pyca/Cryptography
-Tested with OpenSSL 3.0.16
+- Tested with Python 3.10.x
+- Tested with OpenSSL 3.0.16
+- InquirerPy
+- pyca/Cryptography
 
 1. Setup python venv
 2. [Install Dependencies](/docs/compiling-guide.md)
