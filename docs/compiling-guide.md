@@ -6,7 +6,6 @@
 
 Make sure to have the python venv already set up
 
-1. Download [OpenSSL 3.0.16](https://openssl-library.org/source/)
 
 #### Dependencies
 
@@ -16,6 +15,17 @@ Make sure to have the python venv already set up
   - MSVC
   - Windows 10 SDK (Have not tested Windows 11 SDK)
 
+If you want SSLv2 and weak ciphers you must install [OpenSSL 1.0.2](https://openssl-library.org/source/)
+I do not have a config for 1.0.2 yet.
+1. C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat x86_amd64 or wherever your path goes
+2. cd d:/path/to/project_name/.venv/openssl-1.0.2(u or version you downloaded)
+3. perl Configure VC-WIN64A --prefix=d:/path/to/project_name/.venv/openssl --openssldir=d:/path/to/project_name/.venv/openssl enable-ssl3 enable-ssl2 enable-md5 enable-weak-ssl-ciphers enable-rc5
+4. ms\do_win64a
+5. nmake -f ms\ntdll.mak
+6. nmake -f ms\ntdll.mak install
+
+-----------------------Only for SSLv3-------------------------------------
+1. Download [OpenSSL 3.0.16](https://openssl-library.org/source/)
 cd into /configs and run ./config.ps1 to install or do it manually with guide below
 1. Remove the two no-ssl3 options directly from /configdata.pm at the options array in OpenSSL source folder
 2. C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvarsall.bat x86_amd64 or wherever your path goes
@@ -25,6 +35,8 @@ cd into /configs and run ./config.ps1 to install or do it manually with guide be
 6. OpenSSL should be installed as /.venv/openssl
 7. Replace Activate.ps1 with config/Activate.ps1
 8. Replace /.venv/openssl/openssl.cnf
+
+--------------------------------------------------------------------------
 
 ## Cryptography
 
